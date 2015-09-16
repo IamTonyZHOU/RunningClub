@@ -36,6 +36,6 @@ C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\bin\Newtonsoft.Json.x
 C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\bin\System.Net.Http.Formatting.xml
 C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\bin\System.Web.Http.xml
 C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\bin\System.Web.Http.WebHost.xml
-C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\obj\Debug\RunningClub.csprojResolveAssemblyReference.cache
 C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\obj\Debug\RunningClub.dll
 C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\obj\Debug\RunningClub.pdb
+C:\Users\tzhou035\Documents\GitHub\RunningClub\RunningClub\obj\Debug\RunningClub.csprojResolveAssemblyReference.cache
