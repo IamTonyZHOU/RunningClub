@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Exo', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,11 +17,22 @@ textarea {
     max-width: 280px;
 }
 
+#homemain h4 {
+    font-family: 'Exo', sans-serif;
+    font-size: 24px;
+    text-align:left;
+}
+
 
 #img_logo {
     float:left;
     padding-top:10px;
     margin-right:5px;
     margin-left:5px;
+}
+
+.homepageicon {
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px #888888;
 }
 
