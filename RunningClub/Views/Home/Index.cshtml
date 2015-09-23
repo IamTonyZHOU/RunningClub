@@ -3,13 +3,13 @@
     ViewBag.Title = "Home";
 }
 
-
-
 <div class="row" id="homemain">
     <div class="col-md-4">
         <h4>Track my run</h4>
         <p>
-            <img alt="Track" class="homepageicon" width="90%" src="@Url.Content("~/Images/track.jpg")" />
+            <a href="#/track">
+                <img alt="Track" class="homepageicon" width="90%" src="@Url.Content("~/Images/track.jpg")" />
+            </a>
         </p>
         <p>&nbsp;</p>
     </div>
@@ -27,4 +27,9 @@
         </p>
         <p>&nbsp;</p>
     </div>
+    <div ng-view>
+
+
+    </div>
+   
 </div>
