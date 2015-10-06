@@ -12,7 +12,8 @@ clubApp.config(function ($routeProvider) {
 
         // route for the about page
         .when('/track', {
-            templateUrl: 'pages/track.html'
+            templateUrl: 'pages/track.html',
+            controller: 'trackController'
         })
 
        
@@ -25,9 +26,24 @@ clubApp.controller('mainController', function ($scope) {
 });
 
 clubApp.controller('trackController', function ($scope) {
-    $scope.message = 'Look! I am an about page.';
+    $scope.message = 'Look! I am an track page.';
 });
 
 clubApp.controller('contactController', function ($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
+});
+
+$(document).on('ready', function () {
+    $("#input-21").fileinput({
+        previewFileType: "image",
+        browseClass: "btn btn-success",
+        browseLabel: "Pick Image",
+        browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+        removeClass: "btn btn-danger",
+        removeLabel: "Delete",
+        removeIcon: "<i class=\"glyphicon glyphicon-trash\"></i> ",
+        uploadClass: "btn btn-info",
+        uploadLabel: "Upload",
+        uploadIcon: "<i class=\"glyphicon glyphicon-upload\"></i> "
+    });
 });
