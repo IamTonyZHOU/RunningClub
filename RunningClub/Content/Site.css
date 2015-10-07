@@ -40,3 +40,8 @@ textarea {
     margin-left:20px;
     margin: 20px 0 0 20px;
 }
+
+.bar {
+    height: 18px;
+    background: green;
+}

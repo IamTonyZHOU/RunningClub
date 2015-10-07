@@ -1,34 +1,49 @@
-﻿<div class="text-center">
-    <div>
-        <p>{{ message }}</p>
-        <div class="text-title-padding">
-            <p class="text-left">
-                Distance
-            </p>
-            <p class="text-left">
-                <input type="text" id="rundistance" class="input-lg " />
-            </p>
-        </div>
-        <div class="text-title-padding">
-            <p class="text-left">
-                Date
-            </p>
-            <p class="text-left">
-                <input type="datetime" id="rundate" class="input-lg" />
-            </p>
-            <p>
+﻿<form id="fileupload" action="/upload" method="POST" enctype="multipart/form-data"  data-ng-controller="trackController" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
+    <div class="text-center">
+        <div>
+            <p>{{ message }}</p>
+            <div class="text-title-padding">
+                <p class="text-left">
+                    Distance
+                </p>
+                <p class="text-left">
+                    <input type="text" id="rundistance" class="input-lg " />
+                </p>
+            </div>
+            <div class="text-title-padding">
+                <p class="text-left">
+                    Date
+                </p>
+                <p class="text-left">
+                    <input type="datetime" id="rundate" class="input-lg" />
+                </p>
+                <p>
 
-            </p>
-        </div>
-        <div class="text-title-padding">
-            <p class="text-left">
-                Evidence
-            </p>
-            
-            <p class="text-left">
-                <label class="control-label">Select File</label>
-                <input id="input-21" type="file" accept="image/*" class="file-loading">
-            </p>
+                </p>
+            </div>
+
+            <div class="text-title-padding">
+                <p class="text-left">
+                    Evidence
+                </p>
+                <p class="text-left">
+                    <span class="btn btn-success fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Add files...</span>
+                        <!-- The file input field used as target for the file upload widget -->
+                        <input id="fileupload" type="file" name="files[]" multiple>
+
+                    </span>
+
+
+                    <div id="progress">
+                        <div class="bar" style="width: 0%;"></div>
+                    </div>
+
+                    <div id="files" class="files"></div>
+                </p>
+            </div>
+
         </div>
     </div>
-</div>
+</form>
