@@ -14,22 +14,32 @@ namespace RunningClub.Controllers
             return View();
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public ActionResult Upload()
         {
+            string fileName = string.Empty;
             if (Request.Files.Count > 0)
             {
                 var file = Request.Files[0];
 
                 if (file != null && file.ContentLength > 0)
                 {
-                    var fileName = Path.GetFileName(file.FileName);
+                    fileName = Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
                     file.SaveAs(path);
                 }
             }
 
-            return RedirectToAction("UploadDocument");
+            if (!string.IsNullOrEmpty(fileName))
+                return Content("/Images/" + fileName);
+            else
+                return Content(string.Empty);
         }
     }
 }

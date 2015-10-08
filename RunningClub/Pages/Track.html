@@ -1,13 +1,13 @@
-﻿<form id="fileupload" action="/upload" method="POST" enctype="multipart/form-data"  data-ng-controller="trackController" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
+﻿<form ng-app="clubApp" ng-controller="trackController" name="form">
     <div class="text-center">
         <div>
             <p>{{ message }}</p>
             <div class="text-title-padding">
                 <p class="text-left">
-                    Distance
+                    Distance 
                 </p>
                 <p class="text-left">
-                    <input type="text" id="rundistance" class="input-lg " />
+                    <input type="number" min="0" max="999" ng-model="traceItem.distance" id="rundistance" placeholder="Kilometer" class="input-lg" required />
                 </p>
             </div>
             <div class="text-title-padding">
@@ -15,10 +15,12 @@
                     Date
                 </p>
                 <p class="text-left">
-                    <input type="datetime" id="rundate" class="input-lg" />
+                    <input type="date" ng-model="traceItem.runDate" placeholder="yyyy-MM-dd" name="input" id="rundate" class="input-lg" required  />
                 </p>
                 <p>
-
+                    <span class="error" ng-show="myForm.input.$error.required">
+                        Required!
+                    </span>
                 </p>
             </div>
 
@@ -27,23 +29,25 @@
                     Evidence
                 </p>
                 <p class="text-left">
-                    <span class="btn btn-success fileinput-button">
-                        <i class="glyphicon glyphicon-plus"></i>
-                        <span>Add files...</span>
-                        <!-- The file input field used as target for the file upload widget -->
-                        <input id="fileupload" type="file" name="files[]" multiple>
-
-                    </span>
-
-
-                    <div id="progress">
-                        <div class="bar" style="width: 0%;"></div>
+                    <div class="text-left">
+                        <h4>Upload on file select</h4>
+                        <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+                                accept="image/*" ngf-max-height="5000" ngf-max-size="5MB">
+                            Select File
+                        </button>
+                        <br>
+                        File:
+                        <div style="font:smaller">
+                            {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                            <span class="progress" ng-show="f.progress >= 0">
+                                <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+                            </span>
+                        </div>
+                        {{errorMsg}}
+                        <img ng-show="f.result.length > 0"  ng-src="{{f.result}}" width="80%">
                     </div>
-
-                    <div id="files" class="files"></div>
                 </p>
             </div>
-
         </div>
     </div>
 </form>
