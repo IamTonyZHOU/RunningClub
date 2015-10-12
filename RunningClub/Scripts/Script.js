@@ -15,8 +15,6 @@ clubApp.config(function ($routeProvider) {
             templateUrl: 'pages/track.html',
             controller: 'trackController'
         })
-
-       
 });
 
 // create the controller and inject Angular's $scope
@@ -25,23 +23,32 @@ clubApp.controller('mainController', function ($scope) {
     $scope.message = 'Everyone come and see how good I look!';
 });
 
-/*
-clubApp.controller('trackController', function ($scope) {
-    $scope.message = 'Look! I am an track page.';
-});
-*/
-
 clubApp.controller('contactController', function ($scope) {
     $scope.message = 'Contact us! JK. This is just a demo.';
 });
 
 
 //var app = angular.module('fileUpload', ['ngFileUpload']);
-clubApp.controller('trackController', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+clubApp.controller('trackController', ['$scope', 'Upload', '$timeout','$http', function ($scope, Upload, $timeout, $http) {
     $scope.message = 'Look! I am an track page.';
+   
     $scope.traceItem = {
         distance: '',
         runDate: new Date(2013, 9, 22)
+    };
+    $scope.saveData = function () {
+        var dataObj = {
+            distance: $scope.traceItem.distance,
+            runDate: $scope.traceItem.runDate,
+            pictureUrl: ''
+        };
+        var res = $http.post('/upload/saveData', dataObj);
+        res.success(function (data, status, headers, config) {
+            $scope.message = data;
+        });
+        res.error(function (data, status, headers, config) {
+            alert("failure message: " + JSON.stringify({ data: data }));
+        });
     };
     $scope.uploadFiles = function (file, errFiles) {
         $scope.f = file;

@@ -1,13 +1,22 @@
-﻿<form ng-app="clubApp" ng-controller="trackController" name="form">
+﻿<form ng-app="clubApp" ng-controller="trackController" name="myform" novalidate ng-submit="myform.$valid">
     <div class="text-center">
         <div>
             <p>{{ message }}</p>
             <div class="text-title-padding">
                 <p class="text-left">
-                    Distance 
+                    Distance (km)
                 </p>
                 <p class="text-left">
-                    <input type="number" min="0" max="999" ng-model="traceItem.distance" id="rundistance" placeholder="Kilometer" class="input-lg" required />
+                    <input type="number" min="0" max="999" ng-model="traceItem.distance" name="rundistance" id="rundistance" placeholder="Kilometer" class="input-lg" required="" />
+                    {{myform.$submitted  }}
+                    <div class="text-left" >
+                        <span class="error" ng-show="myform.rundistance.$error.required"
+                            Required!
+                        </span>
+                        <span class="error" ng-show="myform.rundistance.$error.max">
+                            Not valid!
+                        </span>
+                    </div>
                 </p>
             </div>
             <div class="text-title-padding">
@@ -18,9 +27,7 @@
                     <input type="date" ng-model="traceItem.runDate" placeholder="yyyy-MM-dd" name="input" id="rundate" class="input-lg" required  />
                 </p>
                 <p>
-                    <span class="error" ng-show="myForm.input.$error.required">
-                        Required!
-                    </span>
+                    
                 </p>
             </div>
 
@@ -30,7 +37,6 @@
                 </p>
                 <p class="text-left">
                     <div class="text-left">
-                        <h4>Upload on file select</h4>
                         <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
                                 accept="image/*" ngf-max-height="5000" ngf-max-size="5MB">
                             Select File
@@ -47,6 +53,9 @@
                         <img ng-show="f.result.length > 0"  ng-src="{{f.result}}" width="80%">
                     </div>
                 </p>
+            </div>
+            <div class="text-title-padding text-left">
+                <button type="button" class="btn btn-success" ng-click="saveData()">Save</button>
             </div>
         </div>
     </div>
