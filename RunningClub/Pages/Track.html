@@ -8,7 +8,6 @@
                 </p>
                 <p class="text-left">
                     <input type="number" min="0" max="999" ng-model="traceItem.distance" name="rundistance" id="rundistance" placeholder="Kilometer" class="input-lg" required="" />
-                    {{myform.$submitted  }}
                     <div class="text-left" >
                         <span class="error" ng-show="myform.rundistance.$error.required"
                             Required!
@@ -19,15 +18,13 @@
                     </div>
                 </p>
             </div>
+
             <div class="text-title-padding">
                 <p class="text-left">
                     Date
                 </p>
                 <p class="text-left">
-                    <input type="date" ng-model="traceItem.runDate" placeholder="yyyy-MM-dd" name="input" id="rundate" class="input-lg" required  />
-                </p>
-                <p>
-                    
+                    <input type="date" ng-model="traceItem.runDate" placeholder="yyyy-MM-dd" name="input" id="rundate" class="input-lg" required/>
                 </p>
             </div>
 
@@ -37,15 +34,15 @@
                 </p>
                 <p class="text-left">
                     <div class="text-left">
-                        <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
-                                accept="image/*" ngf-max-height="5000" ngf-max-size="5MB">
-                            Select File
+                        <button name="uploadImage" class="text-left"  style="border: none !important;background:none;" type="file" ngf-select="uploadFiles($file, $invalidFiles)" ng-model="uploadImage" 
+                                accept="image/*" ngf-max-height="5000" ngf-max-size="5MB" integer>
+                            <img src="images/upload.png" width="50%" />
                         </button>
                         <br>
-                        File:
-                        <div style="font:smaller">
+                       
+                        <div>
                             {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-                            <span class="progress" ng-show="f.progress >= 0">
+                            <span class="progress text-left" ng-show="f.progress >= 0">
                                 <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
                             </span>
                         </div>
@@ -55,7 +52,7 @@
                 </p>
             </div>
             <div class="text-title-padding text-left">
-                <button type="button" class="btn btn-success" ng-click="saveData()">Save</button>
+                <button type="button" class="btn btn-primary btn-success  btn-lg" ng-disabled="!myform.$valid" ng-click="saveData()">Save</button>
             </div>
         </div>
     </div>

@@ -30,7 +30,7 @@ clubApp.controller('contactController', function ($scope) {
 
 //var app = angular.module('fileUpload', ['ngFileUpload']);
 clubApp.controller('trackController', ['$scope', 'Upload', '$timeout','$http', function ($scope, Upload, $timeout, $http) {
-    $scope.message = 'Look! I am an track page.';
+    $scope.message = '';
    
     $scope.traceItem = {
         distance: '',
@@ -73,3 +73,25 @@ clubApp.controller('trackController', ['$scope', 'Upload', '$timeout','$http', f
         }
     }
 }]);
+
+
+clubApp.directive('integer', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            ctrl.$validators.integer = function (modelValue, viewValue) {
+                if (ctrl.$isEmpty(modelValue)) {
+                    // consider empty is not valid
+                    ctrl.$setValidity('integer', false);
+                    return false;
+                }
+
+                else {
+                    ctrl.$setValidity('integer', true);
+                    // it is invalid
+                    return true;
+                }
+            };
+        }
+    };
+});
