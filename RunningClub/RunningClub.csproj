@@ -117,6 +117,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\track.jpg" />
+    <Content Include="Images\upload.png" />
     <Content Include="Pages\Home.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
